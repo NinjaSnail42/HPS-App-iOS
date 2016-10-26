@@ -1,10 +1,7 @@
-//
 //  CurrentNewscast.m
 //  
 //
 //  Created by Brandon Huettner on 9/5/15.
-//
-//
 
 #import "CurrentNewscast.h"
 

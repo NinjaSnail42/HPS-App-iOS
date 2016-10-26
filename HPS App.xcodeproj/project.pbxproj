@@ -27,7 +27,6 @@
 		07C3B735188F2C6E00653B23 /* RecommendedApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C3B734188F2C6E00653B23 /* RecommendedApps.m */; };
 		2834D57F187C5B4700282999 /* StudentHandbook.m in Sources */ = {isa = PBXBuildFile; fileRef = 2834D57E187C5B4700282999 /* StudentHandbook.m */; };
 		2849AE42187DB51800562324 /* Daily Bullitin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2849AE41187DB51800562324 /* Daily Bullitin.m */; };
-		286752FB191D29A3000A0BCD /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 286752FA191D29A3000A0BCD /* Messages.m */; };
 		286BB26D18CF5B73006C8455 /* BreakfastandLunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 286BB26C18CF5B73006C8455 /* BreakfastandLunch.m */; };
 		28AD6158188992AE002EDF8E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AD6157188992AE002EDF8E /* SWRevealViewController.m */; };
 		28D95AAB18E08224005D18C1 /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28D95AAA18E08224005D18C1 /* Menu.plist */; };
@@ -108,6 +107,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3FB658981DC072E2004BEC6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F2A3A931C3DA3B000799BB6 /* hps app.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8421B3F3172DA6EE0012ED34;
+			remoteInfo = "HPS App";
+		};
+		3FB6589A1DC072E2004BEC6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F2A3A931C3DA3B000799BB6 /* hps app.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8421B41F172DA6EE0012ED34;
+			remoteInfo = "HPS AppTests";
+		};
 		8421B424172DA6EE0012ED34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8421B3EB172DA6EE0012ED34 /* Project object */;
@@ -152,8 +165,6 @@
 		2834D57E187C5B4700282999 /* StudentHandbook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentHandbook.m; sourceTree = "<group>"; };
 		2849AE40187DB51800562324 /* Daily Bullitin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Daily Bullitin.h"; sourceTree = "<group>"; };
 		2849AE41187DB51800562324 /* Daily Bullitin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Daily Bullitin.m"; sourceTree = "<group>"; };
-		286752F9191D29A3000A0BCD /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
-		286752FA191D29A3000A0BCD /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messages.m; sourceTree = "<group>"; };
 		286BB26B18CF5B73006C8455 /* BreakfastandLunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakfastandLunch.h; sourceTree = "<group>"; };
 		286BB26C18CF5B73006C8455 /* BreakfastandLunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreakfastandLunch.m; sourceTree = "<group>"; };
 		28AD6156188992AE002EDF8E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -377,6 +388,10 @@
 		};
 		3F2A3A941C3DA3B000799BB6 /* Products */ = {
 			isa = PBXGroup;
+			children = (
+				3FB658991DC072E2004BEC6A,
+				3FB6589B1DC072E2004BEC6A,
+			);
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -554,8 +569,6 @@
 				0713A51D194FD8C100F71C2C /* MonthsTableViewController.m */,
 				0713A50E194FB8A700F71C2C /* Breakfast and Lunch TableViewController.h */,
 				0713A50F194FB8A700F71C2C /* Breakfast and Lunch TableViewController.m */,
-				286752F9191D29A3000A0BCD /* Messages.h */,
-				286752FA191D29A3000A0BCD /* Messages.m */,
 				07593FAF18EF4A2900368FFD /* MonthlyCalendar.h */,
 				07593FB018EF4A2900368FFD /* MonthlyCalendar.m */,
 				286BB26B18CF5B73006C8455 /* BreakfastandLunch.h */,
@@ -680,7 +693,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8421B3EE172DA6EE0012ED34 /* Build configuration list for PBXProject "hps app" */;
+			buildConfigurationList = 8421B3EE172DA6EE0012ED34 /* Build configuration list for PBXProject "HPS App" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -703,6 +716,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3FB658991DC072E2004BEC6A = {
+			isa = PBXReferenceProxy;
+			remoteRef = 3FB658981DC072E2004BEC6A /* PBXContainerItemProxy */;
+		};
+		3FB6589B1DC072E2004BEC6A = {
+			isa = PBXReferenceProxy;
+			remoteRef = 3FB6589A1DC072E2004BEC6A /* PBXContainerItemProxy */;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8421B3F1172DA6EE0012ED34 /* Resources */ = {
@@ -811,7 +835,6 @@
 				3F10874E187E73C4003578A4 /* Videos.m in Sources */,
 				2834D57F187C5B4700282999 /* StudentHandbook.m in Sources */,
 				3FA00FFE188F673E00FCD49D /* ClassifiedEmployeesForm.m in Sources */,
-				286752FB191D29A3000A0BCD /* Messages.m in Sources */,
 				0713A510194FB8A700F71C2C /* Breakfast and Lunch TableViewController.m in Sources */,
 				8421B419172DA6EE0012ED34 /* DetailViewController.m in Sources */,
 				3F71B2C71C3C991400497662 /* LiveStreamingViewController.m in Sources */,
@@ -1035,7 +1058,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8421B3EE172DA6EE0012ED34 /* Build configuration list for PBXProject "hps app" */ = {
+		8421B3EE172DA6EE0012ED34 /* Build configuration list for PBXProject "HPS App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8421B42F172DA6EE0012ED34 /* Debug */,
