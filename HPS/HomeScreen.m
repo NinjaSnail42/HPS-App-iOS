@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 #define CORNER_RADIUS 4
 #import "SWRevealViewController.h"
-#import <Parse/Parse.h>
 
 @interface HomeScreen ()
 
@@ -45,10 +44,6 @@
     
     _button.target = self.revealViewController;
     _button.action = @selector(revealToggle:);
-    
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation addUniqueObject:@"HPS" forKey:@"channels"];
-    [currentInstallation saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning

@@ -35,8 +35,6 @@
 		3F10874E187E73C4003578A4 /* Videos.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10874D187E73C4003578A4 /* Videos.m */; };
 		3F22C7CA18A7293800672174 /* SchoolWebsite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F22C7C918A7293800672174 /* SchoolWebsite.m */; };
 		3F25EE2A1A811CC1005B012F /* FebruaryLunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F25EE291A811CC1005B012F /* FebruaryLunch.m */; };
-		3F2A3A911C3DA3B000799BB6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2A3A8F1C3DA32900799BB6 /* Bolts.framework */; };
-		3F2A3A921C3DA3B000799BB6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2A3A8D1C3DA23700799BB6 /* Parse.framework */; };
 		3F2A3A971C3DA3F800799BB6 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2A3A961C3DA3F800799BB6 /* libsqlite3.tbd */; };
 		3F2BE46B1A5A1AB40068CE69 /* JanuaryLunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BE46A1A5A1AB40068CE69 /* JanuaryLunch.m */; };
 		3F2CD19C17DC01890064BF0E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8421B40C172DA6EE0012ED34 /* Default-568h@2x.png */; };
@@ -179,7 +177,6 @@
 		3F22C7C918A7293800672174 /* SchoolWebsite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolWebsite.m; sourceTree = "<group>"; };
 		3F25EE281A811CC1005B012F /* FebruaryLunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FebruaryLunch.h; sourceTree = "<group>"; };
 		3F25EE291A811CC1005B012F /* FebruaryLunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FebruaryLunch.m; sourceTree = "<group>"; };
-		3F2A3A8D1C3DA23700799BB6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3F2A3A8F1C3DA32900799BB6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3F2A3A931C3DA3B000799BB6 /* hps app.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "hps app.xcodeproj"; sourceTree = "<group>"; };
 		3F2A3A961C3DA3F800799BB6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -297,8 +294,6 @@
 				3F77CCBB198D51EC00F97307 /* CFNetwork.framework in Frameworks */,
 				3F0F975719594C4C00848E2B /* MessageUI.framework in Frameworks */,
 				07662CC61853B0A200BA1326 /* CoreImage.framework in Frameworks */,
-				3F2A3A911C3DA3B000799BB6 /* Bolts.framework in Frameworks */,
-				3F2A3A921C3DA3B000799BB6 /* Parse.framework in Frameworks */,
 				07BB3EA91846FF8B006FEB56 /* libz.1.2.5.dylib in Frameworks */,
 				84D1D7761844FD1400CDB642 /* AudioToolbox.framework in Frameworks */,
 				8421B3FB172DA6EE0012ED34 /* CoreGraphics.framework in Frameworks */,
@@ -503,7 +498,6 @@
 				07662CC51853B0A200BA1326 /* CoreImage.framework */,
 				076A29401846EA8D00D91DA1 /* libz.1.2.5.dylib */,
 				3F2A3A8F1C3DA32900799BB6 /* Bolts.framework */,
-				3F2A3A8D1C3DA23700799BB6 /* Parse.framework */,
 				84E151111845499800BD8A6C /* QuartzCore.framework */,
 				84E151121845499800BD8A6C /* StoreKit.framework */,
 				84D1D7831844FD6700CDB642 /* SystemConfiguration.framework */,
@@ -682,6 +676,7 @@
 				TargetAttributes = {
 					8421B3F2172DA6EE0012ED34 = {
 						DevelopmentTeam = PW33QBCQ58;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -971,7 +966,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.humphrey.esu7.HPS-App";
 				PRODUCT_NAME = "HPS App";
-				PROVISIONING_PROFILE = "302d245d-2d56-4dd5-acca-d2d2141fbffa";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HPS App-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1011,7 +1006,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.humphrey.esu7.HPS-App";
 				PRODUCT_NAME = "HPS App";
-				PROVISIONING_PROFILE = "302d245d-2d56-4dd5-acca-d2d2141fbffa";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HPS App-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv6 armv7 armv7s arm64";

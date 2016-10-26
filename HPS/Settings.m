@@ -7,7 +7,6 @@
 //
 
 #import "Settings.h"
-#import <Parse/Parse.h>
 
 @interface Settings ()
 
@@ -41,13 +40,6 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)bandChannelSwitch:(id)sender {
-    if (_bandChannelSwitch.on) {
-        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-        [currentInstallation addUniqueObject:@"Test" forKey:@"channels"];
-        [currentInstallation saveInBackground];
-    } else {
-        //Add stuff here.
-    }
 }
 
 - (IBAction)cancelButton:(id)sender {

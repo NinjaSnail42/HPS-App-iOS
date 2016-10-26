@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Brandon Huettner. All rights reserved.
 //
 
-#import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "HomeScreen.h"
 
@@ -16,13 +15,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Parse setApplicationId:@"QO3ec4YxJhzGzzuBqIjCXIfVxBr0KOKvM7GN766X"
-                  clientKey:@"jFBrXGiI6YaPKLbhso2weDr1pmKPynpsXuIFO5Cf"];
-
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation addUniqueObject:@"HPS" forKey:@"channels"];
-    [currentInstallation saveInBackground];
-   
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xCC0000)];
     [[UIToolbar appearance] setBarTintColor:UIColorFromRGB(0xCC0000)];
     [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x000000)];
@@ -33,9 +25,6 @@
         BOOL preBackgroundPush = ![application respondsToSelector:@selector(backgroundRefreshStatus)];
         BOOL oldPushHandlerOnly = ![self respondsToSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:)];
         BOOL noPushPayload = ![launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-        if (preBackgroundPush || oldPushHandlerOnly || noPushPayload) {
-            [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-        }
     }
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
@@ -73,29 +62,17 @@
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    // Store the deviceToken in the current installation and save it to Parse.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
-    [PFPush handlePush:userInfo];
-    
-    if (application.applicationState == UIApplicationStateInactive) {
-        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
-    }
     
 }
 
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    if (application.applicationState == UIApplicationStateInactive) {
-        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
-    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -7,7 +7,6 @@
 //
 
 #import "SendPushNotifications.h"
-#import <Parse/Parse.h>
 #import <SystemConfiguration/SCNetworkReachability.h>
 
 @interface SendPushNotifications ()
@@ -82,31 +81,6 @@
 }
 
 - (IBAction)sendPushButton:(id)sender {
-
-//For Band Pushes
-    if (_bandSwitch.on) {
-        PFPush *push = [[PFPush alloc] init];
-        [push setChannel:@"Band"];
-        [push setMessage : self.pushText.text];
-        [push sendPushInBackground];
-    }
-
-//For Speech Pushes
-    if (_speechSwitch.on) {
-        PFPush *push = [[PFPush alloc] init];
-        [push setChannel:@"Speech"];
-        [push setMessage : self.pushText.text];
-        [push sendPushInBackground];
-    }
-    
-//For Track Pushes
-
-    
-    
-    PFPush *push = [[PFPush alloc] init];
-    [push setChannel:@"HPS"];
-    [push setMessage : self.pushText.text];
-    [push sendPushInBackground];
     
     [sender resignFirstResponder];
     
@@ -163,20 +137,7 @@
     [_webView loadRequest:requestObj];
     //Finished Checking for Internet Connection
     
-    [PFUser logInWithUsernameInBackground:_usernameField.text password:_passwordField.text block:^(PFUser *user, NSError *error) {
-            if (user) {
-                _informationIncorrect.alpha=0;
-                
-                NSString * storyboardName = @"iPhoneStoryBoard";
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-                UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"PushViewController"];
-                [self presentViewController:vc animated:YES completion:nil];
-            }
-            else {
-                _informationIncorrect.alpha=1;
-            }
-        }];
-    }
+}
 
 - (IBAction)administrationInfo:(id)sender {
     UIAlertView *administrationInfo = [[UIAlertView alloc]initWithTitle:@"Administration Page" message:@"This page is for administrators only. It contains tools for administrative use." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
