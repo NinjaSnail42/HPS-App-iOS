@@ -17,6 +17,7 @@
 
 #pragma mark - Managing the detail item
 
+
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
@@ -43,7 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+     
     [self configureView];
 }
 
@@ -68,5 +69,6 @@
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
+
 
 @end

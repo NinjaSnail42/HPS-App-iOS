@@ -6,21 +6,98 @@
 //  Copyright (c) 2013 Brandon Huettner. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "AppDelegate.h"
+#import "HomeScreen.h"
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
+    [Parse setApplicationId:@"QO3ec4YxJhzGzzuBqIjCXIfVxBr0KOKvM7GN766X"
+                  clientKey:@"jFBrXGiI6YaPKLbhso2weDr1pmKPynpsXuIFO5Cf"];
+
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation addUniqueObject:@"HPS" forKey:@"channels"];
+    [currentInstallation saveInBackground];
+   
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xCC0000)];
+    [[UIToolbar appearance] setBarTintColor:UIColorFromRGB(0xCC0000)];
+    [[UIBarButtonItem appearance] setTintColor:UIColorFromRGB(0x000000)];
+
+    
+    if (application.applicationState != UIApplicationStateBackground) {
+    
+        BOOL preBackgroundPush = ![application respondsToSelector:@selector(backgroundRefreshStatus)];
+        BOOL oldPushHandlerOnly = ![self respondsToSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:)];
+        BOOL noPushPayload = ![launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (preBackgroundPush || oldPushHandlerOnly || noPushPayload) {
+            [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+        }
     }
+    
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+     UIRemoteNotificationTypeAlert|
+     UIRemoteNotificationTypeSound];
+    
+    
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey])
+    {[[NSUserDefaults standardUserDefaults] setObject:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey] forKey:@"notificationReceived"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    
     return YES;
 }
-							
+
+//- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+//{
+    //mdata = [[NSMutableData alloc]init];
+//}
+
+//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+//{
+  //  [mdata appendData:data];
+//}
+
+
+//- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+//{
+   // NSString  *filePath = [NSString stringWithFormat:@"%u/%@", NSDocumentDirectory,@"Months.plist"];
+    //[mdata writeToFile:filePath atomically:YES];
+//}
+
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    [PFPush handlePush:userInfo];
+    
+    if (application.applicationState == UIApplicationStateInactive) {
+        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+    }
+    
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    if (application.applicationState == UIApplicationStateInactive) {
+        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
