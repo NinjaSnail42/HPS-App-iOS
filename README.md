@@ -5,4 +5,4 @@ has slowed due to college.  It has been optimized to be able to be updated throu
 ones) so that the tech coordinator can easily update it.
 
 Installation:
-The app can be found on the Apple App Store.  It is named HPS App.
+As of now, the app is no longer available. Due to having nobody to fill my shoes after leaving high school, the app was removed from the App Store and they have gone with an outside company to develop their mobile application.
